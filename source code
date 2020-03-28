@@ -1,0 +1,77 @@
+#include <iostream>
+
+using namespace std;
+
+void badSwap(int myBalance, int heriticBalance);
+void goodSwap(int& myBalance, int& heriticBalance);
+
+int main()
+{
+	//Title
+	cout << "\n\n\t\t\t***Balance swap***\n\n";
+
+	//Create and assign values
+	int myBankBalance = 6000;
+	int heriticBankBalance = 9000;
+
+	//Print out balances
+	cout << "To start my bank balance is " << myBankBalance << endl;
+	cout << "To start the heritits bank balance is " << heriticBankBalance << endl;
+	system("pause");
+
+	//Call the badswap function
+	badSwap(myBankBalance, heriticBankBalance);
+
+	//Display the balance after the bad swap
+	cout << "After the badSwap, from main, my balance is " << myBankBalance << endl;
+	cout << "After the badSwap, from main, the heritics balance is " << heriticBankBalance << endl;
+	cout << "***The swap doesn't change the original variables***\n";
+	system("pause");
+
+	//call the goodSwap function
+	goodSwap(myBankBalance, heriticBankBalance);
+
+	//Display the balance after the good swap
+	cout << "After the goodSwap, from main, my balance is " << myBankBalance << endl;
+	cout << "After the goodSwap, from main, the heritics balance is " << heriticBankBalance << endl;
+	cout << "***By using references you can see the balances have swapped***\n";
+	system("pause");
+	return 0;
+}
+
+void badSwap (int myBalance, int heriticBalance)
+{
+	//Print out scores
+	cout << "Going into the badSwap function your balance is " << myBalance << endl;
+	cout << "Going into the badSwap function your balance is " << heriticBalance << endl;
+	system("pause");
+
+	//do the swap of the values
+	int servitor = myBalance; //Servitor holds the value for my balance
+	myBalance = heriticBalance;
+	heriticBalance = servitor;
+
+	//After swap
+	cout << "After the badSwap, in function, my balance is " << myBalance << endl;
+	cout << "After the badSwap, in function, the heritics balance is " << heriticBalance << endl;
+	system("pause");
+}
+
+void goodSwap(int& myBalance, int& heriticBalance)
+{
+	//Print out scores
+	cout << "Going into the goodSwap function your balance is " << myBalance << endl;
+	cout << "Going into the goodSwap function the heritics balance is " << heriticBalance << endl;
+	system("pause");
+
+	//Swap the values
+		//do the swap of the values
+	int servitor = myBalance; //Servitor holds the value for my balance
+	myBalance = heriticBalance;
+	heriticBalance = servitor;
+
+	//After swap
+	cout << "After the goodSwap function your balance is " << myBalance << endl;
+	cout << "After the goodSwap function the heritics balance is " << heriticBalance << endl;
+	system("pause");
+}
